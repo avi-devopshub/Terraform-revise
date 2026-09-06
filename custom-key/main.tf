@@ -1,6 +1,6 @@
 resource "aws_key_pair" "my_key"{
     key_name = "my_key"
-    public_key = file(/root/.ssh/id_ed25519.pub)
+    public_key = file("/root/.ssh/id_ed25519.pub")
 }
 
 resource "aws_instance" "ec2"{
