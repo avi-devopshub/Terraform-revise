@@ -103,3 +103,25 @@ resource "aws_security_group" "sg" {
         cidr_blocks = ["0.0.0.0/0"]
     }
 }
+#Public Instance Creation
+resource "aws_instance" "public-ec2"{
+    ami = "ami-0199ac7c9fbf9ed83"
+    instance_type = "t3.micro"
+    key_name = "hyderabad"
+    subnet_id = aws_subnet.public_subnet.id
+    vpc_security_group_ids = [aws_security_group.sg.id]
+    tags = {
+        Name = "public-ec2"
+    }
+}
+#PurivateInstance Creation
+resource "aws_instance" "private-ec2"{
+    ami = "ami-0199ac7c9fbf9ed83"
+    instance_type = "t3.micro"
+    key_name = "hyderabad"
+    subnet_id = aws_subnet.private_subnet.id
+    vpc_security_group_ids = [aws_security_group.sg.id]
+    tags = {
+        Name = "private-ec2"
+    }
+}
