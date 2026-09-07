@@ -60,7 +60,7 @@ resource "aws_route_table" "public_rt"{
 }
 #Public rt association
 resource "aws_route_table_association" "public_rt_association" {
-    route_id = aws_route_table.public_rt.id
+    route_table_id = aws_route_table.public_rt.id
     subnet_id = aws_subnet.public_subnet.id
 }
 #Private rt
@@ -76,7 +76,7 @@ resource "aws_route_table" "private_rt"{
 }
 #Private rt association
 resource "aws_route_table_association" "private_rt_association" {
-    route_id = aws_route_table.private_rt.id
+    route_table_id = aws_route_table.private_rt.id
     subnet_id = aws_subnet.private_subnet.id
 }
 #Security Group craete
